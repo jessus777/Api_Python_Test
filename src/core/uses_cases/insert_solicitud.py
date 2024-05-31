@@ -35,23 +35,21 @@ class CreateSolicitud:
     def get_all_grimoros(self)-> List[Grimoire]:
         return self.grimoire_repository.get_all()
 
-
-
     @classmethod
     def __validate_first_name(cls, first_name: str) -> None:
         if not first_name.isalpha():
             raise ValueError('Nombre invalido')
         
         if len(first_name) > 20:
-            raise ValueError('Nombre muy extenso')
+            raise ValueError('Nombre muy extenso. No debe exceder el limite de 20 caracteres')
 
     @classmethod
     def __validate_last_name(cls, last_name: str) -> None:
         if not last_name.isalpha():
-            raise ValueError('Nombre invalido')
+            raise ValueError('Apellido invalido')
         
         if len(last_name) > 20:
-            raise ValueError('Nombre muy extenso')
+            raise ValueError('Apellido muy extenso. No debe exceder el limite de 20 caracteres')
         
     @classmethod
     def __validate_age(cls, age: int) -> None:
@@ -59,7 +57,7 @@ class CreateSolicitud:
             raise ValueError('Edad no es un número entero')
 
         if not (10 <= age <= 99):
-            raise ValueError('Edad no tiene dos dígitos')
+            raise ValueError('Edad no tiene dos dígitos. Tiene que ser mayor de edad')
     
     @classmethod
     def __validate_affinity(cls, affinity: str) -> None:
@@ -73,4 +71,4 @@ class CreateSolicitud:
             raise ValueError('identificador invalido')
         
         if len(identificator) > 10:
-            raise ValueError('identificador muy extenso')
+            raise ValueError('identificador muy extenso. No debe exceder el limite de 10 caracteres alfanumericos')

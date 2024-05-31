@@ -25,8 +25,12 @@ def add_solicitud(solicitud_data: SolicitudCreate):
     except Exception as e:
         raise HTTPException(status_code=500, detail="Internal Server Error")   
 
+@app.get('/solicitudes', description="Obtiene las solicitudes")
+def get_all_grimoires():
+    solicitudes = solicitud_service.get_list_request()
+    return solicitudes
 
-@app.get('/grimoires', description="Get all grimoires")
+@app.get('/grimoires', description="Obtiene los grimoires")
 def get_all_grimoires():
     grimoires = grimoires_service.get_all()
     return grimoires
