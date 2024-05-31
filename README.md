@@ -42,7 +42,7 @@ Este proyecto es una aplicación basada en Python que permite gestionar solicitu
 1. Clonar el repositorio:
 
    ```bash
-   git clone https://github.com/tu_usuario/tu_repositorio.git
+   git clone https://github.com/jessus777/Api_Python_Test.git
    cd tu_repositorio
 
 2.  Crear y activar un entorno virual
@@ -54,7 +54,7 @@ Este proyecto es una aplicación basada en Python que permite gestionar solicitu
     pip install -r requirements.txt
 
 4. Ejecutar el script en un entorno de sql server
-
+    src/db/database.sql
 
 ## Ejecucion de la aplicaion
 
