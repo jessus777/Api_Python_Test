@@ -23,7 +23,7 @@ def add_solicitud(solicitud_data: SolicitudCreate):
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
-        raise HTTPException(status_code=500, detail="Error interno del servidor: " + str(e))
+        raise HTTPException(status_code=500, detail="Internal Server Error")   
 
 
 @app.get('/grimoires', description="Get all grimoires")

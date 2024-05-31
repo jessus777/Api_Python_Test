@@ -14,6 +14,6 @@ class SolicitudService:
             solicitud = Solicitud(**solicitud_data)
             self.create_solicitud_use_case.execute(solicitud)
         except ValueError as e:
-            print(f"Error al crear la solicitud: {str(e)}")    
+            raise ValueError(f"Error al crear la solicitud: {str(e)}")    
         except Exception as e:
-            print(f"Error inesperado al crear la solicitud: {str(e)}")
+            raise Exception(f"Error inesperado al crear la solicitud: {str(e)}")

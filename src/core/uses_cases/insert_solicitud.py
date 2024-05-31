@@ -1,3 +1,4 @@
+from typing import List
 import random
 from src.core.entities.solicitud import Solicitud
 from src.core.entities.grimoire import Grimoire
@@ -13,19 +14,27 @@ class CreateSolicitud:
     def execute(self, solicitud: Solicitud):
         self.__validate_first_name(solicitud.nombre)
         self.__validate_last_name(solicitud.apellido)
+        self.__validate_identificator(solicitud.identificacion)
         self.__validate_age(solicitud.edad)
         self.__validate_affinity(solicitud.afinidad_magica) 
         
     
-        grimorios = self.grimoire_repository.get_all()
+        grimorios = self.get_all_grimoros()
 
         if not grimorios:
             raise ValueError("No hay grimorios disponibles.")
-
-        grimorio_seleccionado = random.choice(grimorios)
         
-        solicitud.grimorio_id = grimorio_seleccionado.id
+
+        indice_aleatorio = random.randint(0, len(grimorios) - 1)
+        grimorio_seleccionado_id = grimorios[indice_aleatorio].id
+
+        solicitud.grimoire_id = grimorio_seleccionado_id
         self.solicitud_repository.add(solicitud)
+
+
+    def get_all_grimoros(self)-> List[Grimoire]:
+        return self.grimoire_repository.get_all()
+
 
 
     @classmethod
@@ -57,3 +66,11 @@ class CreateSolicitud:
         allowed_affinities = {"Oscuridad", "Luz", "Agua"}
         if affinity not in allowed_affinities:
             raise ValueError(f'Afinidad Magica inválida. Debe ser una de {", ".join(allowed_affinities)}')
+        
+    @classmethod
+    def __validate_identificator(cls, identificator: str) -> None:
+        if not identificator.isalnum():
+            raise ValueError('identificador invalido')
+        
+        if len(identificator) > 10:
+            raise ValueError('identificador muy extenso')
