@@ -28,6 +28,7 @@ class CreateSolicitud:
         indice_aleatorio = random.randint(0, len(grimorios) - 1)
         grimorio_seleccionado_id = grimorios[indice_aleatorio].id
 
+        solicitud.estatus = "Registrado"
         solicitud.grimoire_id = grimorio_seleccionado_id
         self.solicitud_repository.add(solicitud)
 
