@@ -65,10 +65,10 @@ Este proyecto es una aplicación basada en Python que permite gestionar solicitu
 
 ## Endpoints Disponibles
 
-GET /solicitudes: Obtiene todas las solicitudes.
-GET /solicitudes/{solicitud_id}: Obtiene una solicitud por su ID.
-POST /solicitudes: Crea una nueva solicitud.
-PATCH /solicitudes/{solicitud_id}: Actualiza el estado de una solicitud.
-DELETE /solicitudes/{solicitud_id}: Elimina una solicitud.
-GET /grimoires: Obtiene todos los grimorios relacionados con las solicitudes.
+1. GET /solicitudes: Obtiene todas las solicitudes.
+2. GET /solicitudes/{solicitud_id}: Obtiene una solicitud por su ID.
+3. POST /solicitudes: Crea una nueva solicitud.
+4. PATCH /solicitudes/{solicitud_id}: Actualiza el estado de una solicitud.
+5. DELETE /solicitudes/{solicitud_id}: Elimina una solicitud.
+6. GET /grimoires: Obtiene todos los grimorios relacionados con las solicitudes.
 
