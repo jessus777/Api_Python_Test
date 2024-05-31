@@ -2,6 +2,7 @@ import logging
 from typing import List
 from sqlalchemy.orm import Session
 from src.core.entities.solicitud import Solicitud
+from src.core.entities.grimoire import Grimoire
 from src.core.Interfaces.solicitu_repository import SolicitudRepository
 from src.infrastructure.database.config.connection import DBConnectionHandler
 
@@ -63,4 +64,13 @@ class SolicitudRepositoryImpl(SolicitudRepository):
                     logger.info(f'Solicitud deleted successfully: {solicitud_id}')
         except Exception as e:
             logger.error(f'Error deleting solicitud by id {solicitud_id}: {e}')
+            raise e
+        
+
+    def get_related_grimoires(self) -> List[Grimoire]:
+        try:
+            with self.db_handler as db:
+                return db.session.query(Grimoire).join(Solicitud).distinct(Grimoire.id).all()
+        except Exception as e:
+            logger.error(f'Error obtener relacionados a la solicitud: {e}')
             raise e

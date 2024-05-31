@@ -2,10 +2,12 @@ from typing import List
 from src.core.Interfaces.solicitu_repository import SolicitudRepository
 from src.core.Interfaces.grimoire_repository import GrimoireRepository
 from src.core.entities.solicitud import Solicitud
+from src.core.entities.grimoire import Grimoire
 from src.application.models.solicitud_create import SolicitudCreate
 from src.application.models.solicitud_update import SolicitudUpdate
 from src.core.uses_cases.insert_solicitud import CreateSolicitud
 from src.core.uses_cases.update_solicitud import UpdateSolicitud
+from src.core.uses_cases.get_related_grimoires import GetRelatedGrimoires
 from src.core.uses_cases.patch_estatus_solicitud import PatchEstatusSolicitud
 from src.core.uses_cases.delete_solicitud import DeleteSolicitud
 from src.core.uses_cases.get_all_solicitudes import GetAllSolicitudes
@@ -20,7 +22,7 @@ class SolicitudService:
         self.update_solicitud_use_case = UpdateSolicitud(solicitud_repository)
         self.patch_state_solicitud_use_case = PatchEstatusSolicitud(solicitud_repository)
         self.delete_solicitud_use_case = DeleteSolicitud(solicitud_repository)
-
+        self.get_related_grimoires_use_case = GetRelatedGrimoires(solicitud_repository)
 
     def create_solicitud(self, solicitud_data: dict) -> None:
         try:
@@ -63,3 +65,6 @@ class SolicitudService:
 
     def delete_solicitud(self, solicitud_id: int):
         return self.delete_solicitud_use_case.execute(solicitud_id)
+
+    def get_related_grimoires(self) -> List[Grimoire]: 
+        return self.get_related_grimoires_use_case.execute()

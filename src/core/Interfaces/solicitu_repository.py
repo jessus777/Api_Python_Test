@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import List
 from src.core.entities.solicitud import Solicitud
+from src.core.entities.grimoire import Grimoire
 
 class SolicitudRepository(ABC):
     @abstractmethod
@@ -21,4 +22,7 @@ class SolicitudRepository(ABC):
 
     @abstractmethod
     def delete(self, solicitud_id: int):
+        pass
+    @abstractmethod
+    def get_related_grimoires(self) -> List[Grimoire]:
         pass

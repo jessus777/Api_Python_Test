@@ -72,3 +72,11 @@ def get_all_grimoires():
 def get_all_grimoires():
     grimoires = grimoires_service.get_all()
     return grimoires
+
+@app.get('/asignaciones', description="Obtiene todos los grimorios asignados con solicitudes")
+def get_all_related_grimoires():
+    try:
+        grimoires = solicitud_service.get_related_grimoires()
+        return grimoires
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="Internal Server Error")
