@@ -26,6 +26,17 @@ def add_solicitud(solicitud_data: SolicitudCreate):
     except Exception as e:
         raise HTTPException(status_code=500, detail="Internal Server Error")   
     
+
+@app.patch('/solicitudes/{solicitud_id}/estatus', description="Actualiza el estatus de una solicitud")
+def patch_solicitud(solicitud_id: int, estatus: str):
+    try:
+        solicitud_service.patch_state_solicitud(solicitud_id, estatus)
+        return {"message": "Solicitud actualizada exitosamente"}
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="Internal Server Error")
+    
 @app.put('/solicitudes/{solicitud_id}', description="Actualiza una solicitud")
 def update_solicitud(
     solicitud_id: int,
