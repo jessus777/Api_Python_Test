@@ -1,5 +1,6 @@
 from fastapi import FastAPI,  HTTPException
 from src.application.models.solicitud_create import SolicitudCreate
+from src.application.models.solicitud_update import SolicitudUpdate
 from src.application.services.grimoire_service import GrimoireService
 from src.application.services.solicitud_service import SolicitudService
 from src.infrastructure.repositories.grimoire_repository_impl import GrimoireRepositoryImpl
@@ -24,6 +25,21 @@ def add_solicitud(solicitud_data: SolicitudCreate):
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail="Internal Server Error")   
+    
+@app.put('/solicitudes/{solicitud_id}', description="Actualiza una solicitud")
+def update_solicitud(
+    solicitud_id: int,
+    solicitud_data: SolicitudUpdate 
+    ):
+    try:
+        solicitud_data_dict = solicitud_data.model_dump()
+        updated_solicitud = solicitud_service.update_solicitud(solicitud_id, solicitud_data_dict)
+        return updated_solicitud
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="Internal Server Error")
+
 
 @app.get('/solicitudes', description="Obtiene las solicitudes")
 def get_all_grimoires():
