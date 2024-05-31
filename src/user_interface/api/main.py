@@ -52,6 +52,17 @@ def update_solicitud(
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
 
+@app.delete('/solicitudes/{solicitud_id}', description="Elimina una solicitud")
+def delete_solicitud(solicitud_id: int):
+    try:
+        solicitud_service.delete_solicitud(solicitud_id)
+        return {"message": "Solicitud eliminada exitosamente"}
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="Internal Server Error")
+
+
 @app.get('/solicitudes', description="Obtiene las solicitudes")
 def get_all_grimoires():
     solicitudes = solicitud_service.get_list_request()

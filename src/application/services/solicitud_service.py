@@ -7,7 +7,9 @@ from src.application.models.solicitud_update import SolicitudUpdate
 from src.core.uses_cases.insert_solicitud import CreateSolicitud
 from src.core.uses_cases.update_solicitud import UpdateSolicitud
 from src.core.uses_cases.patch_estatus_solicitud import PatchEstatusSolicitud
+from src.core.uses_cases.delete_solicitud import DeleteSolicitud
 from src.core.uses_cases.get_all_solicitudes import GetAllSolicitudes
+
 
 class SolicitudService:
     def __init__(self, solicitud_repository: SolicitudRepository, grimoire_repository: GrimoireRepository):
@@ -17,6 +19,8 @@ class SolicitudService:
         self.get_solicitud_use_case = GetAllSolicitudes(solicitud_repository)
         self.update_solicitud_use_case = UpdateSolicitud(solicitud_repository)
         self.patch_state_solicitud_use_case = PatchEstatusSolicitud(solicitud_repository)
+        self.delete_solicitud_use_case = DeleteSolicitud(solicitud_repository)
+
 
     def create_solicitud(self, solicitud_data: dict) -> None:
         try:
@@ -56,3 +60,6 @@ class SolicitudService:
         
     def get_list_request(self) -> List[Solicitud]:
         return self.get_solicitud_use_case.execute()
+
+    def delete_solicitud(self, solicitud_id: int):
+        return self.delete_solicitud_use_case.execute(solicitud_id)
