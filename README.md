@@ -34,9 +34,9 @@ Este proyecto es una aplicación basada en Python que permite gestionar solicitu
 
 ### Requisitos
 
-- Python 3.8 o superior
+- Python 3.8 o superior.
 - [Virtualenv](https://virtualenv.pypa.io/en/latest/)
-
+- Sql Server ver. 15 o superior.
 ### Instalación
 
 1. Clonar el repositorio:
@@ -45,19 +45,17 @@ Este proyecto es una aplicación basada en Python que permite gestionar solicitu
    git clone https://github.com/jessus777/Api_Python_Test.git
    cd tu_repositorio
 
-2.  Crear y activar un entorno virual
+2.  Crear y activar un entorno virual en Windows
    ```bash
     python -m venv env
-    source venv/bin/activate  # En Windows: .\venv\Scripts\activate
+    .\venv\Scripts\activate
 
 
 3. Instalar dependencias
-   ```bash
       pip install -r requirements.txt
 
 
 4. Ejecutar el script en un entorno de sql server management (en el servidor de preferencia el servidor local, con autentificacion de windows)
-   ```bash
     src/db/database.sql
 
 
