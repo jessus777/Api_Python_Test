@@ -36,7 +36,7 @@ Este proyecto es una aplicación basada en Python que permite gestionar solicitu
 
 - Python 3.8 o superior.
 - [Virtualenv](https://virtualenv.pypa.io/en/latest/)
-- Sql Server ver. 15 o superior.
+- SQLite.
 ### Instalación
 
 1. Clonar el repositorio:
