@@ -46,18 +46,20 @@ Este proyecto es una aplicación basada en Python que permite gestionar solicitu
    cd tu_repositorio
 
 2.  Crear y activar un entorno virual
-  ```bash
+   ```bash
     python -m venv env
-  
     source venv/bin/activate  # En Windows: .\venv\Scripts\activate
 
+
 3. Instalar dependencias
-  ```bash
-    pip install -r requirements.txt
+   ```bash
+      pip install -r requirements.txt
+
 
 4. Ejecutar el script en un entorno de sql server management (en el servidor de preferencia el servidor local, con autentificacion de windows)
-  ```bash
+   ```bash
     src/db/database.sql
+
 
 ## Ejecucion de la aplicaion
 
