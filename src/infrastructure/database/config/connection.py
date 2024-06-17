@@ -1,9 +1,11 @@
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+
 class DBConnectionHandler:
     def __init__(self) -> None:
-        self.__connection_string = 'mssql+pyodbc://localhost\\SQLEXPRESS/test_database?driver=ODBC+Driver+17+for+SQL+Server&trusted_connection=yes'
-        self.__engine = create_engine(self.__connection_string)
+        self.__connection_string = 'sqlite:///test_database.db'
+        self.__engine = create_engine(self.__connection_string, echo=True)
         self.__Session = sessionmaker(bind=self.__engine)
         self.session = None
 

@@ -56,27 +56,19 @@ Este proyecto es una aplicación basada en Python que permite gestionar solicitu
     pip install -r requirements.txt
 
 
-5. Copiar y Pegar, para ejecutar el script en un entorno de sql server management (en el servidor de preferencia el servidor local, con autentificacion de windows)
-
-   `src/db/database.sql`
+5. Crear la base de datos en sqlite
+    ```bash
+    python src/infrastructure/database/init_db.py
 
 
 ## Ejecucion de la aplicaion
 
-2. Verifica la cadena de conexión:
-   
-   `src/infraestructure/database/config/connection.py`
-   
-   `self.__connection_string = 'mssql+pyodbc://{Server_Name}/{Data_Base}?driver=ODBC+Driver+17+for+SQL+Server&trusted_connection=yes'`
-
-    `'trusted_connection=yes: Indica que se utilizará la autenticación integrada de Windows (trusted_connection). Esto significa que se usarán las credenciales de Windows actuales para autenticarse en SQL Server. No se especifica un usuario ni contraseña explícitamente en la cadena de conexión, confiando en la autenticación de Windows.'`
-
-2. Para ejecutar la aplicación con FastAPI debe ejecutar el servidor de la siguiente manera:
+1. Para ejecutar la aplicación con FastAPI debe ejecutar el servidor de la siguiente manera:
 
     ```bash
     uvicorn src.user_interface.api.main:app
 
-3. Abrir tu navegador y navega a `http://127.0.0.1:8000` para ver la aplicación en funcionamiento.
+2. Abrir tu navegador y navega a `http://127.0.0.1:8000/docs` para ver la aplicación en funcionamiento.
 
 ## Endpoints Disponibles
 

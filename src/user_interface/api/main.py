@@ -64,7 +64,7 @@ def delete_solicitud(solicitud_id: int):
 
 
 @app.get('/solicitudes', description="Obtiene las solicitudes")
-def get_all_grimoires():
+def get_all_solicitudes():
     solicitudes = solicitud_service.get_list_request()
     return solicitudes
 
