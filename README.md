@@ -46,7 +46,7 @@ Este proyecto es una aplicación basada en Python que permite gestionar solicitu
    cd tu_repositorio
 
 2.  Crear y activar un entorno virual en Windows
-   ```bash
+    ```bash
     python -m venv env
     .\venv\Scripts\activate
 
