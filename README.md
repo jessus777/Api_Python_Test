@@ -47,7 +47,7 @@ Este proyecto es una aplicación basada en Python que permite gestionar solicitu
 
 2.  Crear y activar un entorno virual en Windows
     ```bash
-    python -m venv env
+    python -m venv venv
     .\venv\Scripts\activate
 
 
