@@ -4,6 +4,7 @@ web api en python
 # Proyecto de Gestión de Solicitudes y Grimorios
 
 Este proyecto es una aplicación basada en Python que permite gestionar solicitudes y grimorios. Está estructurado utilizando principios de arquitectura limpia y se implementa con FastAPI y SQLAlchemy.
+Usando como gestor de base de datos SQLite.
 
 ## Estructura del Proyecto
 
