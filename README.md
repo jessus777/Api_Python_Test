@@ -56,8 +56,9 @@ Este proyecto es una aplicación basada en Python que permite gestionar solicitu
     pip install -r requirements.txt
 
 
-5. Copiar y Pegara, para ejecutar el script en un entorno de sql server management (en el servidor de preferencia el servidor local, con autentificacion de windows)
-    **src/db/database.sql**
+5. Copiar y Pegar, para ejecutar el script en un entorno de sql server management (en el servidor de preferencia el servidor local, con autentificacion de windows)
+
+   `src/db/database.sql`
 
 
 ## Ejecucion de la aplicaion
@@ -74,14 +75,14 @@ Este proyecto es una aplicación basada en Python que permite gestionar solicitu
     ```bash
     uvicorn src.user_interface.api.main:app
 
-3. Abrir tu navegador y navega a **http://127.0.0.1:8000** para ver la aplicación en funcionamiento.
+3. Abrir tu navegador y navega a `http://127.0.0.1:8000` para ver la aplicación en funcionamiento.
 
 ## Endpoints Disponibles
 
-1. GET /solicitudes: Obtiene todas las solicitudes.
-2. POST /solicitudes: Crea una nueva solicitud.
-3. PATCH /solicitudes/{solicitud_id}/estatus: Actualiza el estado de una solicitud.
-4. DELETE /solicitudes/{solicitud_id}: Elimina una solicitud.
-5. GET /grimoires: Obtiene todos los grimorios.
-6. GET /asignaciones: Obtiene todos los grimorios asignados a las solicitudes.
+### 1. GET /solicitudes: Obtiene todas las solicitudes.
+### 2. POST /solicitudes: Crea una nueva solicitud.
+### 3. PATCH /solicitudes/{solicitud_id}/estatus: Actualiza el estado de una solicitud.
+### 4. DELETE /solicitudes/{solicitud_id}: Elimina una solicitud.
+### 5. GET /grimoires: Obtiene todos los grimorios.
+### 6. GET /asignaciones: Obtiene todos los grimorios asignados a las solicitudes.
 
